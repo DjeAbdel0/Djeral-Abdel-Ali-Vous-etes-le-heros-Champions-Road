@@ -49,7 +49,7 @@ img {
   max-width: 750px;
   max-height: 80%;
 }
-.bouttons {
+.boutons {
   display: flex;
   justify-content: space-between;
   margin-top: 5%;

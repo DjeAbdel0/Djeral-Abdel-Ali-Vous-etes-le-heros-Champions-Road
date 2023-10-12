@@ -15,6 +15,11 @@ const chapters = {
       },
     ],
   },
+  mcdo: {
+    titre: "Echec",
+    description:
+      "Malheureusement rien tu echoue lamentablement a lecole. Tu garde un regret eternel pour avoir refuser ce contrat",
+  },
   match: {
     titre: "Premier match",
     description:
@@ -93,18 +98,41 @@ const chapters = {
       "C'est l'heure de la fête ! Tu a célèbré la victoire toute la nuit. Le match suivant, tu était trop épuisé pour pouvoir montret un bon niveau de jeu. Le coach te remplace après 10 minutes de jeu. Ton parcours dans cette nouvelle équipe semble compromis.",
   },
 };
-console.log(goToChapter("contrat"));
+// Définissez la clé du chapitre initial.
+let chapitreActuel = "contrat";
+
+// Appelez la fonction goToChapter avec la clé du chapitre initial.
+goToChapter(chapitreActuel);
 
 function goToChapter(chapitre) {
   let obj = chapters[chapitre];
   if (obj == undefined) {
     console.log("Clé de chapitre invalide : " + chapitre);
-  } else if (obj.boutons && obj.boutons.length > 0) {
-    console.log(obj.titre + "\n" + obj.description);
-    for (let i = 0; i < obj.boutons.length; i++) {
-      console.log(obj.boutons[i].titre);
-    }
   } else {
     console.log(obj.titre + "\n" + obj.description);
+    if (obj.boutons && obj.boutons.length > 0) {
+      // Sélectionnez le div .boutons
+      const boutons = document.querySelector('.boutons');
+      
+      // Supprimez tous les boutons enfants du div .boutons
+      while (boutons.firstChild) {
+        boutons.removeChild(boutons.firstChild);
+      }
+
+      for (let i = 0; i < obj.boutons.length; i++) {
+        // Créez un nouveau bouton
+        const nouveauBtn = document.createElement('button');
+        // Appliquez un libellé au bouton
+        nouveauBtn.textContent = obj.boutons[i].titre;
+        // Ajoutez un gestionnaire d'événements pour changer de chapitre lors du clic
+        nouveauBtn.addEventListener('click', () => {
+          chapitreActuel = obj.boutons[i].destination;
+          // Appelez à nouveau goToChapter avec le nouveau chapitre
+          goToChapter(chapitreActuel);
+        });
+        // Ajoutez le bouton dans le div .boutons
+        boutons.appendChild(nouveauBtn);
+      }
+    }
   }
 }
