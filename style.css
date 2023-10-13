@@ -56,9 +56,7 @@ img {
   width: 750px;
 }
 
-#btn1,
-#btn2,
-#btn3 {
+#btn {
   height: 80px;
   width: 150px;
   background-color: #588157;
@@ -66,8 +64,6 @@ img {
   border-color: #6c976c;
 }
 
-#btn1:hover,
-#btn2:hover,
-#btn3:hover {
+#btn {
   background: #89cf88;
 }

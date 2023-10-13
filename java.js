@@ -2,7 +2,7 @@ const chapters = {
   contrat: {
     titre: "Proposition de contrat",
     description:
-      "Alors que tu es en plein cours à l'école, un représentant du Real Madrid entre dans la salle. Tous les regards se tournent vers lui. Il s'approche de toi et te tend une offre de contrat professionnel avec le club.",
+      "Alors que tu es en plein cours à l'école, un représentant du Real Madrid entre dans la salle. Tous les regards se tournent vers lui. Il s'approche de toi et te tends une lettre qui contient un contrat professionnel avec le club.",
     image: "./assets/img/contract.jpg",
     boutons: [
       {
@@ -17,9 +17,12 @@ const chapters = {
   },
   mcdo: {
     titre: "Echec",
+    image: "./assets/img/stadium.png",
     description:
       "Malheureusement rien tu echoue lamentablement a lecole. Tu garde un regret eternel pour avoir refuser ce contrat",
-  },
+      boutons: [],
+    },
+ 
   match: {
     titre: "Premier match",
     description:
@@ -98,10 +101,12 @@ const chapters = {
       "C'est l'heure de la fête ! Tu a célèbré la victoire toute la nuit. Le match suivant, tu était trop épuisé pour pouvoir montret un bon niveau de jeu. Le coach te remplace après 10 minutes de jeu. Ton parcours dans cette nouvelle équipe semble compromis.",
   },
 };
-// Définissez la clé du chapitre initial.
+
+let titreChap = document.querySelectorAll(".titre");
+let textChap = document.querySelector(".text");
+let imageChap = document.getElementById("logo");
 let chapitreActuel = "contrat";
 
-// Appelez la fonction goToChapter avec la clé du chapitre initial.
 goToChapter(chapitreActuel);
 
 function goToChapter(chapitre) {
@@ -110,27 +115,24 @@ function goToChapter(chapitre) {
     console.log("Clé de chapitre invalide : " + chapitre);
   } else {
     console.log(obj.titre + "\n" + obj.description);
+    titreChap.textContent = obj.titre;
+    textChap.textContent = obj.description;
+    imageChap.src = obj.image;
+    //efffacer les btns
     if (obj.boutons && obj.boutons.length > 0) {
-      // Sélectionnez le div .boutons
       const boutons = document.querySelector('.boutons');
-      
-      // Supprimez tous les boutons enfants du div .boutons
       while (boutons.firstChild) {
         boutons.removeChild(boutons.firstChild);
       }
-
+        //creer btn et ajouter le text
       for (let i = 0; i < obj.boutons.length; i++) {
-        // Créez un nouveau bouton
-        const nouveauBtn = document.createElement('button');
-        // Appliquez un libellé au bouton
+        let nouveauBtn = document.createElement('button');
+        nouveauBtn.setAttribute("id", "btn");
         nouveauBtn.textContent = obj.boutons[i].titre;
-        // Ajoutez un gestionnaire d'événements pour changer de chapitre lors du clic
         nouveauBtn.addEventListener('click', () => {
           chapitreActuel = obj.boutons[i].destination;
-          // Appelez à nouveau goToChapter avec le nouveau chapitre
           goToChapter(chapitreActuel);
         });
-        // Ajoutez le bouton dans le div .boutons
         boutons.appendChild(nouveauBtn);
       }
     }
