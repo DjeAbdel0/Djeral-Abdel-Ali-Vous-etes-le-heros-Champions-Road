@@ -22,7 +22,6 @@ const chapters = {
       "Malheureusement rien tu echoue lamentablement a lecole. Tu garde un regret eternel pour avoir refuser ce contrat",
       boutons: [],
     },
- 
   match: {
     titre: "Premier match",
     description:
@@ -40,11 +39,10 @@ const chapters = {
       },
     ],
   },
-
   confiance: {
     titre: "Gagner la confiance de tous",
     description:
-      "En demandant au coach de te faire entrer, tu as montré ton désir de jouer. Maintenant, tu dois faire tes preuves sur le terrain pour gagner la confiance de l'entraîneur et de l'équipe.",
+      "Tu rentre a la 2eme mi-temps. Tu fais un bon match et tu commence a prendre tes aises. Tu es completement épuisé a la fin du match.",
     image: "./assets/img/coach.jpg",
     boutons: [
       {
@@ -56,11 +54,11 @@ const chapters = {
   patience: {
     titre: "Faire preuve de patience",
     description:
-      "Tu as choisi d'attendre patiemment que le coach décide de te faire entrer. Cela peut être difficile, mais tu dois rester concentré et prêt à saisir l'opportunité quand elle se présentera.",
+      "Tu as choisi d'attendre patiemment que le coach décide de te faire entrer. Il te fait rentrer a la 82eme minute. Tu reussis a marquer le but gagnant 2 mins apres. Bravo ",
     image: "./assets/img/bench.jpg",
     boutons: [
       {
-        titre: "Continuer à attendre",
+        titre: "Apres match",
         destination: "victoire",
       },
     ],
@@ -85,20 +83,40 @@ const chapters = {
       },
     ],
   },
+
   entrainement: {
     titre: "Entraînement Intensif",
+    image: "./assets/img/stadium.png",
     description:
       "Pour devenir un meilleur joueur, tu décides de t'engager dans un programme d'entraînement intensif. Cela nécessite un dévouement total et des heures d'efforts sur le terrain. Le stade entier est impressionné par ton niveau de jeu.",
+      boutons: [],
   },
   repos: {
     titre: "Un Repos Bien Mérité",
+    image: "./assets/img/stadium.png",
     description:
-      "Après l'effort, le réconfort. Tu prends du temps pour te reposer et récupérer de l'intensité du match. Le match suivant, tu as fait preuve d'un niveau correct, tu es presque le nouveau titulaire de ton poste.",
+      "Après l'effort, le réconfort. Tu prends du temps pour te reposer et récupérer de l'intensité du match. Le match suivant, tu as fait preuve d'un niveau correct, tu es presque le nouveau titulaire de ton poste.", 
+      boutons: [],
   },
   fete: {
     titre: "Fêter la Victoire",
+    image: "./assets/img/stadium.png",
     description:
       "C'est l'heure de la fête ! Tu a célèbré la victoire toute la nuit. Le match suivant, tu était trop épuisé pour pouvoir montret un bon niveau de jeu. Le coach te remplace après 10 minutes de jeu. Ton parcours dans cette nouvelle équipe semble compromis.",
+      boutons: [],
+  },
+  matchSuiv: {
+    titre: "Grand moment",
+    
+    description:
+      "Un joueur vient de se blesser, le coach décide de te faire rentrer. Tu commence a t'échauffer",
+    image: "./assets/img/bench.jpg",
+    boutons: [
+      {
+        titre: "remplacement",
+        destination: "remplacement",
+      },
+    ],
   },
 };
 
@@ -109,6 +127,7 @@ let chapitreActuel = "contrat";
 
 goToChapter(chapitreActuel);
 
+let twist = 0;
 function goToChapter(chapitre) {
   let obj = chapters[chapitre];
   if (obj == undefined) {
@@ -137,4 +156,5 @@ function goToChapter(chapitre) {
       }
     }
   }
+
 }
