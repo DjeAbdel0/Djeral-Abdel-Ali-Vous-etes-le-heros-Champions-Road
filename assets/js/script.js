@@ -26,7 +26,7 @@ const chapters = {
     titre: "Premier match",
     description:
       "Après avoir choisi de rejoindre le Real Madrid, tu te retrouves sur le banc des remplaçants lors de ton premier match. Le match est intense, mais l'entraîneur ne t'a pas encore fait entrer.",
-    image: "./assets/img/bench_starter.jpg",
+    image: "./assets/img/match.jpg",
     boutons: [
       {
         titre: "Demander au coach de te faire rentrer sur le terrain.",
@@ -43,7 +43,7 @@ const chapters = {
     titre: "Gagner la confiance de tous",
     description:
       "Tu rentre à  la 2ème mi-temps. Tu fais un bon match et tu commence a prendre tes aises. Tu es complètement épuisé à la fin du match.",
-    image: "./assets/img/",
+    image: "./assets/img/confiance.webp",
     boutons: [
       {
         titre: "Prochain",
@@ -126,7 +126,7 @@ const chapters = {
     titre: "Grand moment",
     description:
       "Un joueur vient de se blesser, le coach décide de te faire rentrer. Tu commences à t'échauffer.",
-    image: "./assets/img/bench.jpg",
+    image: "./assets/img/matchSuiv.jpg",
     boutons: [
       {
         titre: "remplacement",
@@ -136,18 +136,21 @@ const chapters = {
   },
   bravo: {
     titre: "IN-CRO-YA-BLE",
-    image: "",
-    description: "",
+    image: "./assets/img/bravo.jpg",
+    description:
+      "Félicitations, ta détermination et ton acharnement à t'entraîner ont porté leurs fruits. Grâce à tes efforts, tu as joué un rôle décisif dans la victoire de ton équipe lors du match. Continue à travailler dur pour atteindre de nouveaux sommets dans ta carrière sportive !",
   },
   moyen: {
     titre: "Pas mal",
-    image: "./assets/img/stadium.png",
-    description: "",
+    image: "./assets/img/moyen.jpg",
+    description:
+      "Bravo ! Avec une performance exceptionnelle sur le terrain aujourd'hui, tu as prouvé que même après une bonne nuit de repos, ton talent naturel brille toujours. Ton jeu exceptionnel a grandement contribué à la victoire de ton équipe. Continue à donner le meilleur de toi-même sur le terrain !",
   },
   blessure: {
     titre: "Quel dommage!",
-    image: "./assets/img/stadium.png",
-    description: "",
+    image: "./assets/img/blessure.jpg",
+    description:
+      "Même si ta performance a été médiocre aujourd'hui à cause de la fête d'hier soir, souviens-toi que l'entraînement et le repos sont essentiels pour récupérer et revenir en meilleure forme. Ne laisse pas une soirée de célébration te décourager, car chaque expérience est une leçon pour devenir un meilleur joueur.",
   },
 };
 
@@ -185,17 +188,23 @@ function goToChapter(chapitre) {
         boutons.appendChild(nouveauBtn);
       }
     }
-
-    if (chapters[chapitre].twist === 1) {
-      obj.boutons[0].destination = "bravo";
-    } else if (chapters[chapitre].twist === 2) {
-      obj.boutons[0].destination = "moyen";
-    }else if (chapters[chapitre].twist === 3) {
-      obj.boutons[0].destination = "blessure";
+    if (chapitre === "entrainement") {
+      twist = 1;
+    } else if (chapitre === "repos") {
+      twist = 2;
+    } else if (chapitre === "fete") {
+      twist = 3;
     }
-    
-    
-    
+
+    if (chapitre === "matchSuiv") {
+      if (twist === 1) {
+        obj.boutons[0].destination = "bravo";
+      } else if (twist === 2) {
+        obj.boutons[0].destination = "moyen";
+      } else if (twist === 3) {
+        obj.boutons[0].destination = "blessure";
+      }
+    }
   }
 }
 
