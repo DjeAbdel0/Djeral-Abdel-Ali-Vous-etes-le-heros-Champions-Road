@@ -92,9 +92,9 @@ const chapters = {
       {
         titre: "Prochain match",
         destination: "matchSuiv",
-        twist: 1,
       },
     ],
+    twist: 1,
   },
   repos: {
     titre: "Un Repos Bien Mérité",
@@ -105,9 +105,9 @@ const chapters = {
       {
         titre: "Prochain match",
         destination: "matchSuiv",
-        twist: 2,
       },
     ],
+    twist: 2,
   },
   fete: {
     titre: "Fêter la Victoire",
@@ -118,9 +118,9 @@ const chapters = {
       {
         titre: "Prochain match",
         destination: "matchSuiv",
-        twist: 3,
       },
     ],
+    twist: 3,
   },
   matchSuiv: {
     titre: "Grand moment",
@@ -163,7 +163,6 @@ function goToChapter(chapitre) {
   if (obj == undefined) {
     console.log("Clé de chapitre invalide : " + chapitre);
   } else {
-    console.log(obj.titre + "\n" + obj.description);
     titreChap.textContent = obj.titre;
     textChap.textContent = obj.description;
     imageChap.src = obj.image;
@@ -179,45 +178,24 @@ function goToChapter(chapitre) {
         nouveauBtn.setAttribute("id", "btn");
         nouveauBtn.textContent = obj.boutons[i].titre;
         nouveauBtn.addEventListener("click", () => {
-          if (obj.boutons[i].titre.includes("S'entraîner") && twist === 1) {
-            twist = 1;
-          } else if (
-            obj.boutons[i].titre.includes("Prendre un peu de repos") &&
-            twist === 2
-          ) {
-            twist = 2;
-          } else if (
-            obj.boutons[i].titre.includes("Célébrer la victoire") &&
-            twist === 3
-          ) {
-            twist = 3;
-          }
-
-          chapitreActuel = obj.boutons[i].destination;
+          let chapitreActuel = obj.boutons[i].destination;
           goToChapter(chapitreActuel);
         });
 
         boutons.appendChild(nouveauBtn);
       }
     }
-  }
 
-  if (chapitre === "victoire") {
-    for (let i = 0; i < obj.boutons.length; i++) {
-      if (obj.boutons[i].titre.includes("S'entraîner") && twist === 1) {
-        obj.boutons[i].destination = "bravo";
-      } else if (
-        obj.boutons[i].titre.includes("Prendre un peu de repos") &&
-        twist === 2
-      ) {
-        obj.boutons[i].destination = "moyen";
-      } else if (
-        obj.boutons[i].titre.includes("Célébrer la victoire") &&
-        twist === 3
-      ) {
-        obj.boutons[i].destination = "blessure";
-      }
+    if (chapters[chapitre].twist === 1) {
+      obj.boutons[0].destination = "bravo";
+    } else if (chapters[chapitre].twist === 2) {
+      obj.boutons[0].destination = "moyen";
+    }else if (chapters[chapitre].twist === 3) {
+      obj.boutons[0].destination = "blessure";
     }
+    
+    
+    
   }
 }
 
