@@ -2,7 +2,7 @@ const chapters = {
   contrat: {
     titre: "Proposition de contrat",
     description:
-      "Alors que tu es en plein cours à l'école, un représentant du Real Madrid entre dans la salle. Tous les regards se tournent vers lui. Il s'approche de toi et te tend une lettre contenant un contrat professionnel avec le club.",
+      "Alors que tu es en plein cours à l'école, un représentant du Real Madrid entre dans la salle. Tous les regards se tournent vers lui. Il s'approche de toi et te tends une lettre contenant un contrat professionnel avec le club.",
     image: "./assets/img/contract.jpg",
     boutons: [
       {
@@ -150,7 +150,7 @@ const chapters = {
     titre: "Quel dommage!",
     image: "./assets/img/blessure.jpg",
     description:
-      "Même si ta performance a été médiocre aujourd'hui à cause de la fête d'hier soir, souviens-toi que l'entraînement et le repos sont essentiels pour récupérer et revenir en meilleure forme. Ne laisse pas une soirée de célébration te décourager, car chaque expérience est une leçon pour devenir un meilleur joueur.",
+      "Malgré les déceptions et les dépressions Suite à la pression, que chacun d'entre nous ressent Malgré la répression et les oppressions Les discriminations, puis les arrestations Malgré les provocations, les incarcérations Le manque de compréhension, les peurs et les pulsions Leur désir, de nous maintenir la tête sous l'eau Transcende ma motivation, nourrit mon ambition, on n'est pas condamné à l'échec",
   },
 };
 
