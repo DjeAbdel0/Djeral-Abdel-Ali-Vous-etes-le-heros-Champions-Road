@@ -111,13 +111,15 @@ const chapters = {
   bravo: {
     titre: "IN-CRO-YA-BLE",
     image: "./assets/img/bravo.jpg",
-    video: "Ronaldo_Juv.gif",
+    gif: "Ronaldo_Juv.gif",
+    video: "./assets/video/Ronaldo.mp4",
     description: "Félicitations, ta détermination et ton acharnement à t'entraîner ont porté leurs fruits. Grâce à tes efforts, tu as joué un rôle décisif dans la victoire de ton équipe lors du match. Continue à travailler dur pour atteindre de nouveaux sommets dans ta carrière sportive !",
   },
   moyen: {
     titre: "Pas mal",
     image: "./assets/img/moyen.jpg",
-    video: "Ronaldo_suii.gif",
+    gif: "Ronaldo_suii.gif",
+    video: "./assets/video/Haaland.mp4",
     description: "Bravo ! Avec une performance exceptionnelle sur le terrain aujourd'hui, tu as prouvé que même après une bonne nuit de repos, ton talent naturel brille toujours. Ton jeu exceptionnel a grandement contribué à la victoire de ton équipe. Continue à donner le meilleur de toi-même sur le terrain !",
   },
   blessure: {
@@ -130,7 +132,7 @@ const chapters = {
 let titreChap = document.getElementById("titre");
 let textChap = document.querySelector(".text");
 let imageChap = document.getElementById("logo");
-
+let jeu = document.querySelector(".jeu");
 
 function goToChapter(chapitre) {
   let obj = chapters[chapitre];
@@ -150,10 +152,18 @@ function goToChapter(chapitre) {
 
     let vid = obj.video;
     if (vid) {
-      imageChap.src = "./assets/gif/" + vid;
-      vid.volume = 0;
+      console.log("kjlabfjkads");
+      imageChap.style.display = "none";
+      let videoMp4 = document.createElement("video");
+      videoMp4.src = vid;
+      videoMp4.setAttribute("id", "logo");
+      videoMp4.volume = 0;
+      videoMp4.play();
+      jeu.appendChild(videoMp4)
+      videoMp4.loop = true;
     }
 
+    
     if (obj.boutons && obj.boutons.length > 0) {
       for (let i = 0; i < obj.boutons.length; i++) {
         let nouveauBtn = document.createElement("button");
