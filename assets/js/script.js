@@ -1,11 +1,9 @@
 const chapters = {
   contrat: {
     titre: "Proposition de contrat",
-    description:
-      "Alors que tu es en plein cours à l'école, un représentant du Real Madrid entre dans la salle. Tous les regards se tournent vers lui. Il s'approche de toi et te tends une lettre contenant un contrat professionnel avec le club.",
+    description: "Alors que tu es en plein cours à l'école, un représentant du Real Madrid entre dans la salle. Tous les regards se tournent vers lui. Il s'approche de toi et te tends une lettre contenant un contrat professionnel avec le club.",
     image: "./assets/img/contract.jpg",
-    boutons: [
-      {
+    boutons: [{
         titre: "Accepter le contrat",
         destination: "match",
       },
@@ -18,58 +16,46 @@ const chapters = {
   mcdo: {
     titre: "Echec",
     image: "./assets/img/macdonalds.jpg",
-    description:
-      "Malheureusement, tu échoues lamentablement à l'école. Tu gardes un regret éternel pour avoir refusé ce contrat.",
+    description: "Malheureusement, tu échoues lamentablement à l'école. Tu gardes un regret éternel pour avoir refusé ce contrat.",
     boutons: [],
   },
   match: {
     titre: "Premier match",
-    description:
-      "Après avoir choisi de rejoindre le Real Madrid, tu te retrouves sur le banc des remplaçants lors de ton premier match. Le match est intense, mais l'entraîneur ne t'a pas encore fait entrer.",
+    description: "Après avoir choisi de rejoindre le Real Madrid, tu te retrouves sur le banc des remplaçants lors de ton premier match. Le match est intense, mais l'entraîneur ne t'a pas encore fait entrer.",
     image: "./assets/img/match.jpg",
-    boutons: [
-      {
+    boutons: [{
         titre: "Demander au coach de te faire rentrer sur le terrain.",
         destination: "confiance",
       },
       {
-        titre:
-          "Attendre patiemment que le coach décide de te faire entrer de lui-même.",
+        titre: "Attendre patiemment que le coach décide de te faire entrer de lui-même.",
         destination: "patience",
       },
     ],
   },
   confiance: {
     titre: "Gagner la confiance de tous",
-    description:
-      "Tu rentre à  la 2ème mi-temps. Tu fais un bon match et tu commence a prendre tes aises. Tu es complètement épuisé à la fin du match.",
+    description: "Tu rentre à  la 2ème mi-temps. Tu fais un bon match et tu commence a prendre tes aises. Tu es complètement épuisé à la fin du match.",
     image: "./assets/img/confiance.webp",
-    boutons: [
-      {
-        titre: "Prochain",
-        destination: "victoire",
-      },
-    ],
+    boutons: [{
+      titre: "Prochain",
+      destination: "victoire",
+    }, ],
   },
   patience: {
     titre: "Faire preuve de patience",
-    description:
-      "Tu as choisi d'attendre patiemment que le coach décide de te faire entrer. Il te fait rentrer a la 82ème minute. C'est le temps de leur montrer ton talent",
+    description: "Tu as choisi d'attendre patiemment que le coach décide de te faire entrer. Il te fait rentrer a la 82ème minute. C'est le temps de leur montrer ton talent",
     image: "./assets/img/patience.jpg",
-    boutons: [
-      {
-        titre: "Prochain match",
-        destination: "victoire",
-      },
-    ],
+    boutons: [{
+      titre: "Prochain match",
+      destination: "victoire",
+    }, ],
   },
   victoire: {
     titre: "La Victoire",
-    description:
-      "Félicitations, ton équipe a remporté le match ! Tu as contribué à la victoire de l'équipe avec 1 but, et maintenant plusieurs choix s'offrent à toi. Que vas-tu faire ensuite ?",
+    description: "Félicitations, ton équipe a remporté le match ! Tu as contribué à la victoire de l'équipe avec 1 but, et maintenant plusieurs choix s'offrent à toi. Que vas-tu faire ensuite ?",
     image: "./assets/img/victoire.jpg",
-    boutons: [
-      {
+    boutons: [{
         titre: "S'entraîner pour s'améliorer davantage.",
         destination: "entrainement",
       },
@@ -86,71 +72,58 @@ const chapters = {
   entrainement: {
     titre: "Entraînement Intensif",
     image: "./assets/img/entrainement.jpg",
-    description:
-      "Pour devenir un meilleur joueur, tu décides de t'engager dans un programme d'entraînement intensif. Cela nécessite un dévouement total et des heures d'efforts sur le terrain. ",
-    boutons: [
-      {
-        titre: "Prochain match",
-        destination: "matchSuiv",
-      },
-    ],
+    description: "Pour devenir un meilleur joueur, tu décides de t'engager dans un programme d'entraînement intensif. Cela nécessite un dévouement total et des heures d'efforts sur le terrain. ",
+    boutons: [{
+      titre: "Prochain match",
+      destination: "matchSuiv",
+    }, ],
     twist: 1,
   },
   repos: {
     titre: "Un Repos Bien Mérité",
     image: "./assets/img/repos.jpg",
-    description:
-      "Après l'effort, le réconfort. Tu prends le temps de te reposer et de récupérer de l'intensité du match. Allez dormir, il y a un autre match demain.",
-    boutons: [
-      {
-        titre: "Prochain match",
-        destination: "matchSuiv",
-      },
-    ],
+    description: "Après l'effort, le réconfort. Tu prends le temps de te reposer et de récupérer de l'intensité du match. Allez dormir, il y a un autre match demain.",
+    boutons: [{
+      titre: "Prochain match",
+      destination: "matchSuiv",
+    }, ],
     twist: 2,
   },
   fete: {
     titre: "Fêter la Victoire",
     image: "./assets/img/fete.jpg",
-    description:
-      "C'est l'heure de la fête ! Tu as célébré la victoire toute la nuit. Allez dormir, il y a un autre match demain.",
-    boutons: [
-      {
-        titre: "Prochain match",
-        destination: "matchSuiv",
-      },
-    ],
+    description: "C'est l'heure de la fête ! Tu as célébré la victoire toute la nuit. Allez dormir, il y a un autre match demain.",
+    boutons: [{
+      titre: "Prochain match",
+      destination: "matchSuiv",
+    }, ],
     twist: 3,
   },
   matchSuiv: {
     titre: "Grand moment",
-    description:
-      "Un joueur vient de se blesser, le coach décide de te faire rentrer. Tu commences à t'échauffer.",
+    description: "Un joueur vient de se blesser, le coach décide de te faire rentrer. Tu commences à t'échauffer.",
     image: "./assets/img/matchSuiv.jpg",
-    boutons: [
-      {
-        titre: "remplacement",
-        destination: "bravo",
-      },
-    ],
+    boutons: [{
+      titre: "remplacement",
+      destination: "bravo",
+    }, ],
   },
   bravo: {
     titre: "IN-CRO-YA-BLE",
     image: "./assets/img/bravo.jpg",
-    description:
-      "Félicitations, ta détermination et ton acharnement à t'entraîner ont porté leurs fruits. Grâce à tes efforts, tu as joué un rôle décisif dans la victoire de ton équipe lors du match. Continue à travailler dur pour atteindre de nouveaux sommets dans ta carrière sportive !",
+    video: "Ronaldo_Juv.gif",
+    description: "Félicitations, ta détermination et ton acharnement à t'entraîner ont porté leurs fruits. Grâce à tes efforts, tu as joué un rôle décisif dans la victoire de ton équipe lors du match. Continue à travailler dur pour atteindre de nouveaux sommets dans ta carrière sportive !",
   },
   moyen: {
     titre: "Pas mal",
     image: "./assets/img/moyen.jpg",
-    description:
-      "Bravo ! Avec une performance exceptionnelle sur le terrain aujourd'hui, tu as prouvé que même après une bonne nuit de repos, ton talent naturel brille toujours. Ton jeu exceptionnel a grandement contribué à la victoire de ton équipe. Continue à donner le meilleur de toi-même sur le terrain !",
+    video: "Ronaldo_suii.gif",
+    description: "Bravo ! Avec une performance exceptionnelle sur le terrain aujourd'hui, tu as prouvé que même après une bonne nuit de repos, ton talent naturel brille toujours. Ton jeu exceptionnel a grandement contribué à la victoire de ton équipe. Continue à donner le meilleur de toi-même sur le terrain !",
   },
   blessure: {
     titre: "Quel dommage!",
     image: "./assets/img/blessure.jpg",
-    description:
-      "Malgré les déceptions et les dépressions Suite à la pression, que chacun d'entre nous ressent Malgré la répression et les oppressions Les discriminations, puis les arrestations Malgré les provocations, les incarcérations Le manque de compréhension, les peurs et les pulsions Leur désir, de nous maintenir la tête sous l'eau Transcende ma motivation, nourrit mon ambition, on n'est pas condamné à l'échec",
+    description: "Malgré les déceptions et les dépressions Suite à la pression, que chacun d'entre nous ressent Malgré la répression et les oppressions Les discriminations, puis les arrestations Malgré les provocations, les incarcérations Le manque de compréhension, les peurs et les pulsions Leur désir, de nous maintenir la tête sous l'eau Transcende ma motivation, nourrit mon ambition, on n'est pas condamné à l'échec",
   },
 };
 
@@ -159,13 +132,13 @@ let textChap = document.querySelector(".text");
 let imageChap = document.getElementById("logo");
 
 
-
 function goToChapter(chapitre) {
   let obj = chapters[chapitre];
 
   if (obj == undefined) {
     console.log("Clé de chapitre invalide : " + chapitre);
   } else {
+
     titreChap.textContent = obj.titre;
     textChap.textContent = obj.description;
     imageChap.src = obj.image;
@@ -173,6 +146,12 @@ function goToChapter(chapitre) {
     const boutons = document.querySelector(".boutons");
     while (boutons.firstChild) {
       boutons.removeChild(boutons.firstChild);
+    }
+
+    let vid = obj.video;
+    if (vid) {
+      imageChap.src = "./assets/gif/" + vid;
+      vid.volume = 0;
     }
 
     if (obj.boutons && obj.boutons.length > 0) {
