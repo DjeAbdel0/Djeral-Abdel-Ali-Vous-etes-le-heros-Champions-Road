@@ -158,7 +158,7 @@ let titreChap = document.getElementById("titre");
 let textChap = document.querySelector(".text");
 let imageChap = document.getElementById("logo");
 
-let twist = 0;
+
 
 function goToChapter(chapitre) {
   let obj = chapters[chapitre];
