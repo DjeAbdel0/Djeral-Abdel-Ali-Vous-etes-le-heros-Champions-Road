@@ -133,6 +133,7 @@ let titreChap = document.getElementById("titre");
 let textChap = document.querySelector(".text");
 let imageChap = document.getElementById("logo");
 let jeu = document.querySelector(".jeu");
+const ziif = new  Audio("./assets/son/son_btn.wav")
 
 function goToChapter(chapitre) {
   let obj = chapters[chapitre];
@@ -140,7 +141,8 @@ function goToChapter(chapitre) {
   if (obj == undefined) {
     console.log("Clé de chapitre invalide : " + chapitre);
   } else {
-
+    ziif.play();
+    ziif.volume = 0.25;
     titreChap.textContent = obj.titre;
     textChap.textContent = obj.description;
     imageChap.src = obj.image;
@@ -163,7 +165,6 @@ function goToChapter(chapitre) {
       videoMp4.loop = true;
     }
 
-    
     if (obj.boutons && obj.boutons.length > 0) {
       for (let i = 0; i < obj.boutons.length; i++) {
         let nouveauBtn = document.createElement("button");
@@ -177,6 +178,7 @@ function goToChapter(chapitre) {
         boutons.appendChild(nouveauBtn);
       }
     }
+
     if (chapitre === "entrainement") {
       twist = 1;
     } else if (chapitre === "repos") {
