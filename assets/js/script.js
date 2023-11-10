@@ -17,7 +17,10 @@ const chapters = {
     titre: "Echec",
     image: "./assets/img/macdonalds.jpg",
     description: "Malheureusement, tu échoues lamentablement à l'école. Tu gardes un regret éternel pour avoir refusé ce contrat.",
-    boutons: [],
+    boutons: [{
+      titre: "Retour",
+      destination: "contrat",
+    }, ],
   },
   match: {
     titre: "Premier match",
@@ -107,6 +110,10 @@ const chapters = {
       titre: "remplacement",
       destination: "bravo",
     }, ],
+    boutons: [{
+      titre: "Retour",
+      destination: "contrat",
+    }, ],
   },
   bravo: {
     titre: "IN-CRO-YA-BLE",
@@ -126,6 +133,7 @@ const chapters = {
     titre: "Quel dommage!",
     image: "./assets/img/blessure.jpg",
     description: "Malgré les déceptions et les dépressions Suite à la pression, que chacun d'entre nous ressent Malgré la répression et les oppressions Les discriminations, puis les arrestations Malgré les provocations, les incarcérations Le manque de compréhension, les peurs et les pulsions Leur désir, de nous maintenir la tête sous l'eau Transcende ma motivation, nourrit mon ambition, on n'est pas condamné à l'échec",
+   
   },
 };
 
@@ -133,10 +141,14 @@ let titreChap = document.getElementById("titre");
 let textChap = document.querySelector(".text");
 let imageChap = document.getElementById("logo");
 let jeu = document.querySelector(".jeu");
-const ziif = new  Audio("./assets/son/son_btn.wav")
+const ziif = new  Audio("./assets/son/son_btn.wav");
+let recommencer = document.getElementById("reset");
 
 function goToChapter(chapitre) {
+
   let obj = chapters[chapitre];
+  localStorage.setItem("chapStored", chapitre);
+  let chapStored = localStorage.getItem("chapStored");
 
   if (obj == undefined) {
     console.log("Clé de chapitre invalide : " + chapitre);
@@ -145,25 +157,28 @@ function goToChapter(chapitre) {
     ziif.volume = 0.25;
     titreChap.textContent = obj.titre;
     textChap.textContent = obj.description;
-    imageChap.src = obj.image;
-
+    
     const boutons = document.querySelector(".boutons");
     while (boutons.firstChild) {
       boutons.removeChild(boutons.firstChild);
     }
 
-    let vid = obj.video;
-    if (vid) {
-      console.log("kjlabfjkads");
-      imageChap.style.display = "none";
+    let mediaWrapper = document.getElementById('media');
+    mediaWrapper.innerHTML = '';
+    if (obj.video != undefined) {
       let videoMp4 = document.createElement("video");
-      videoMp4.src = vid;
-      videoMp4.setAttribute("id", "logo");
+      videoMp4.src = obj.video;
       videoMp4.volume = 0;
-      videoMp4.play();
-      jeu.appendChild(videoMp4)
       videoMp4.loop = true;
+      videoMp4.play();
+      mediaWrapper.appendChild(videoMp4)
+    } 
+    else{
+      let imageElement = document.createElement("img");
+      imageElement.src = obj.image;
+      mediaWrapper.appendChild(imageElement)
     }
+  
 
     if (obj.boutons && obj.boutons.length > 0) {
       for (let i = 0; i < obj.boutons.length; i++) {
@@ -181,10 +196,13 @@ function goToChapter(chapitre) {
 
     if (chapitre === "entrainement") {
       twist = 1;
+      localStorage.setItem("twist" , 1)
     } else if (chapitre === "repos") {
       twist = 2;
+      localStorage.setItem("twist" , 2)
     } else if (chapitre === "fete") {
       twist = 3;
+      localStorage.setItem("twist" , 3)
     }
 
     if (chapitre === "matchSuiv") {
@@ -199,4 +217,12 @@ function goToChapter(chapitre) {
   }
 }
 
-goToChapter("contrat");
+
+
+goToChapter(localStorage.getItem("chapStored"));
+
+recommencer.addEventListener("click", function() {
+  localStorage.setItem("chapStored", "");
+  localStorage.setItem("twist", "");
+  goToChapter("contrat");
+})

@@ -46,9 +46,15 @@ body {
 }
 
 img {
-  max-width: 750px;
-  max-height: 80%;
+  width: 500px;
+  height: auto;
 }
+
+video {
+  width: 500px;
+  height: auto;
+}
+
 .boutons {
   display: flex;
   justify-content: space-between;
@@ -68,7 +74,18 @@ img {
   background: #89cf88;
 }
 
-#logo {
-  width: 45%;
-  height: auto;
+#reset {
+  height: 80px;
+  width: 150px;
+  font-size: 15px;
+  background-color: #588157;
+  border-radius: 10%;
+  border-color: #6c976c;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+}
+
+#reset {
+  background: #89cf88;
 }
