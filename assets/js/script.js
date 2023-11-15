@@ -218,8 +218,12 @@ function goToChapter(chapitre) {
 }
 
 
+if(localStorage.getItem("chapStored") == null) {
+  goToChapter("contrat");
+}else {
+  goToChapter(localStorage.getItem("chapStored"));
+}
 
-goToChapter(localStorage.getItem("chapStored"));
 
 recommencer.addEventListener("click", function() {
   localStorage.setItem("chapStored", "");
