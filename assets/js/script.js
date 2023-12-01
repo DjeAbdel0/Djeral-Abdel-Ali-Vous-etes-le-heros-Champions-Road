@@ -143,6 +143,7 @@ let imageChap = document.getElementById("logo");
 let jeu = document.querySelector(".jeu");
 const ziif = new  Audio("./assets/son/son_btn.wav");
 let recommencer = document.getElementById("reset");
+let mute = document.getElementById("muteCheckbox");
 
 function goToChapter(chapitre) {
 
@@ -154,7 +155,6 @@ function goToChapter(chapitre) {
     console.log("Clé de chapitre invalide : " + chapitre);
   } else {
     ziif.play();
-    ziif.volume = 0.25;
     titreChap.textContent = obj.titre;
     textChap.textContent = obj.description;
     
@@ -218,7 +218,7 @@ function goToChapter(chapitre) {
 }
 
 
-if(localStorage.getItem("chapStored") == null) {
+if(localStorage.getItem("chapStored") === null) {
   goToChapter("contrat");
 }else {
   goToChapter(localStorage.getItem("chapStored"));
@@ -228,5 +228,16 @@ if(localStorage.getItem("chapStored") == null) {
 recommencer.addEventListener("click", function() {
   localStorage.setItem("chapStored", "");
   localStorage.setItem("twist", "");
+  localStorage.setItem("mute", "")
   goToChapter("contrat");
+})
+
+mute.addEventListener("click", function() {
+  if(mute.checked){
+    ziif.volume= 0;
+    localStorage.setItem("mute", "Muted")
+  }else {
+    ziif.volume= 0.25;
+    localStorage.setItem("mute", "Unmuted")
+  }
 })
